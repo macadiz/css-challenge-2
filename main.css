@@ -97,6 +97,10 @@ html {
   background-color: #dcdcdc;
 }
 
+.step-container.error .step::before {
+  background-color: #ff7474;
+}
+
 .step::before {
   content: "";
   position: absolute;
@@ -116,6 +120,11 @@ html {
   margin: -2px;
 }
 
+.step-container.error .step {
+  border: 2px solid #ff7474;
+  margin: -2px;
+}
+
 .step span {
   z-index: 1;
 }
@@ -126,6 +135,10 @@ html {
 
 .step-container.warning .step::before {
   background-color: #ffd174;
+}
+
+.step-container.error .step::before {
+  background-color: #ff7474;
 }
 
 .step-container.success .step::after {
@@ -185,15 +198,15 @@ html {
   border-color: #a2f07b;
 }
 
+.step-container.pending::before,
+.step-container.pending::after {
+  border-color: #dcdcdc;
+}
+
 .step-container.selected::before,
 .step-container.selected::after {
   border-color: #00c2ff;
   height: calc(50% - 24px);
-}
-
-.step-container.pending::before,
-.step-container.pending::after {
-  border-color: #dcdcdc;
 }
 
 .step-container.warning::before,
@@ -202,6 +215,11 @@ html {
   height: calc(50% - 24px);
 }
 
+.step-container.error::before,
+.step-container.error::after {
+  border-color: #ff7474;
+  height: calc(50% - 24px);
+}
 
 
 .stepper.horizontal .step-container.success::before,
@@ -215,19 +233,27 @@ html {
   width: calc(50% - 24px);
 }
 
-.stepper.horizontal .step-container.pending::before,
-.stepper.horizontal .step-container.pending::after {
-  border-color: #dcdcdc;
-}
-
 .stepper.horizontal .step-container.warning::before,
 .stepper.horizontal .step-container.warning::after {
   border-color: #ffd174;
   width: calc(50% - 24px);
 }
 
-.stepper.horizontal .step-container.warning::after, .stepper.horizontal .step-container.selected::after {
+.stepper.horizontal .step-container.error::before,
+.stepper.horizontal .step-container.error::after {
+  border-color: #ff7474;
+  width: calc(50% - 24px);
+}
+
+.stepper.horizontal .step-container.warning::after,
+.stepper.horizontal .step-container.selected::after,
+.stepper.horizontal .step-container.error::after {
   left: calc(50% + 24px);
+}
+
+.stepper.horizontal .step-container.pending::before,
+.stepper.horizontal .step-container.pending::after {
+  border-color: #dcdcdc;
 }
 
 .step-container {
@@ -239,4 +265,29 @@ html {
   position: relative;
   width: 100%;
   height: auto;
+}
+
+/*
+CONFIG PAGE
+*/
+
+#stepper_config {
+  display: block;
+}
+
+#stepper_names_container {
+  display: none;
+}
+
+#stepper_names_container_field {
+  display: flex;
+  flex-direction: column;
+}
+
+#stepper_names_container_field input {
+  width: 120px;
+}
+
+#stepper_container {
+  display: none;
 }
