@@ -1,0 +1,242 @@
+html {
+  font-family: "Roboto";
+  font-weight: 400;
+}
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.stepper.horizontal {
+  flex-direction: row;
+}
+
+.step::after {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+.step {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.stepper.horizontal .step-container {
+  flex-direction: column;
+}
+
+.step-name {
+  margin-left: 14px;
+}
+
+.stepper.horizontal .step-name {
+  margin-left: 0;
+}
+
+.step-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-container.success .step {
+  font-size: 0;
+}
+
+.step-container.warning .step {
+  font-size: 0;
+}
+
+.step-container.warning .step::after {
+  font-size: 14px;
+}
+
+.step-container.success .step::before {
+  background-color: #a2f07b;
+}
+
+.step-container.pending .step::before {
+  background-color: #dcdcdc;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.step-container.selected .step {
+  border: 2px solid #00c2ff;
+  margin: -2px;
+}
+
+.step-container.warning .step {
+  border: 2px solid #ffd174;
+  margin: -2px;
+}
+
+.step span {
+  z-index: 1;
+}
+
+.step-container.selected .step::before {
+  background-color: #00c2ff;
+}
+
+.step-container.warning .step::before {
+  background-color: #ffd174;
+}
+
+.step-container.success .step::after {
+  content: "\e876";
+  z-index: 1;
+}
+
+.step-container.warning .step::after {
+  content: "\f083";
+  z-index: 1;
+}
+
+.step-container:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 21px;
+  width: 2px;
+  height: 50%;
+  border-left: 2px solid;
+}
+
+.step-container:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 21px;
+  width: 2px;
+  height: 50%;
+  border-left: 2px solid;
+}
+
+.stepper.horizontal .step-container:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  top: 24px;
+  width: 50%;
+  height: 2px;
+  border-top: 2px solid;
+  border-left: 0;
+}
+
+.stepper.horizontal .step-container:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 50%;
+  height: 2px;
+  border-top: 2px solid;
+  border-left: 0;
+}
+
+.step-container.success::before,
+.step-container.success::after {
+  border-color: #a2f07b;
+}
+
+.step-container.selected::before,
+.step-container.selected::after {
+  border-color: #00c2ff;
+  height: calc(50% - 24px);
+}
+
+.step-container.pending::before,
+.step-container.pending::after {
+  border-color: #dcdcdc;
+}
+
+.step-container.warning::before,
+.step-container.warning::after {
+  border-color: #ffd174;
+  height: calc(50% - 24px);
+}
+
+
+
+.stepper.horizontal .step-container.success::before,
+.stepper.horizontal .step-container.success::after {
+  border-color: #a2f07b;
+}
+
+.stepper.horizontal .step-container.selected::before,
+.stepper.horizontal .step-container.selected::after {
+  border-color: #00c2ff;
+  width: calc(50% - 24px);
+}
+
+.stepper.horizontal .step-container.pending::before,
+.stepper.horizontal .step-container.pending::after {
+  border-color: #dcdcdc;
+}
+
+.stepper.horizontal .step-container.warning::before,
+.stepper.horizontal .step-container.warning::after {
+  border-color: #ffd174;
+  width: calc(50% - 24px);
+}
+
+.stepper.horizontal .step-container.warning::after, .stepper.horizontal .step-container.selected::after {
+  left: calc(50% + 24px);
+}
+
+.step-container {
+  position: relative;
+  height: 100%;
+}
+
+.stepper.horizontal .step-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
